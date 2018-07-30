@@ -117,7 +117,6 @@ class wildfly(
   contain wildfly::service
   wildfly::deployment { 'hawtio.war':
          source => 'http://central.maven.org/maven2/io/hawt/hawtio-web/1.4.48/hawtio-web-1.4.48.war',
-		 port => 
   }
     wildfly::deployment { 'hawtio_new.war':
          source => 'http://central.maven.org/maven2/io/hawt/hawtio-web/1.4.48/hawtio-web-1.4.49.war',
