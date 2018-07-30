@@ -83,7 +83,7 @@ class wildfly(
   Hash[Pattern[/^\w*(\.\w*-?\w*)*$/], String] $properties     = {
     'jboss.bind.address' => '0.0.0.0',
     'jboss.bind.address.management' => '127.0.0.1',
-    'jboss.management.http.port' => ['9990', '9991']
+    'jboss.management.http.port' => '9990',
     'jboss.management.https.port' => '9993',
     'jboss.http.port' => '8080',
     'jboss.https.port' => '8443',
@@ -115,12 +115,6 @@ class wildfly(
   contain wildfly::install
   contain wildfly::setup
   contain wildfly::service
-  wildfly::deployment { 'hawtio.war':
-         source => 'http://central.maven.org/maven2/io/hawt/hawtio-web/1.4.48/hawtio-web-1.4.48.war',
-  }
-    wildfly::deployment { 'hawtio_new.war':
-         source => 'http://central.maven.org/maven2/io/hawt/hawtio-web/1.4.48/hawtio-web-1.4.49.war',
-  }
 
   if $overlay_class {
     contain $overlay_class
